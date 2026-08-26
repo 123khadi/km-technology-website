@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title>Fags calculators</title>
+    <style>
+      .faq-container {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  color: #555;
+}
+
+.faq-answer p {
+  padding-bottom: 15px;
+  margin: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px; /* Adjust according to content height */
+}
+
+.faq-item.active .icon {
+  transform: rotate(45deg); /* Turns "+" into "x" */
+}
+    </style>
+  </head>
+  <body>
+    <div class="faq-container">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span>How do I reset my password?</span>
+      <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>Click on the "Forgot Password" link on the login page, enter your email address, and follow the reset instructions sent to your inbox.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span>What payment methods do you accept?</span>
+      <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <p>We accept Visa, MasterCard, American Express, PayPal, and Apple Pay.</p>
+    </div>
+  </div>
+</div>
+<details>
+  <summary>How do I reset my password?</summary>
+  <p>Click on the "Forgot Password" link on the login page and follow the emailed instructions.</p>
+</details>
+<script>
+    document.querySelectorAll('.faq-question').forEach((button) => {
+  button.addEventListener('click', () => {
+    const faqItem = button.parentElement;
+    
+    // Optional: Close other open FAQ items
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      if (item !== faqItem) item.classList.remove('active');
+    });
+
+    // Toggle current item
+    faqItem.classList.toggle('active');
+  });
+});
+</script>
+  </body>
+</html>
